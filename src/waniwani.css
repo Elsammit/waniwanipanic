@@ -1,0 +1,158 @@
+.Header{
+    margin-left:10px;
+}
+
+.hitpoint{
+    float: left;
+    list-style: none;
+    margin-left:10px;
+    margin-top:20px;
+    width:300px;
+}
+
+.Point{
+    float: left;
+    list-style: none;
+    margin-left:100px;
+    margin-top:20px;
+}
+
+.pointbar{
+    background-color: red;
+    border-color: red;
+    width:300px;
+}
+
+.SeaBack{
+    background-image: url("./image/sea2.png");
+    background-repeat: no-repeat;
+    width:620px;
+    height:500px;
+    margin-top:10px;
+}
+
+.Gate{
+    float: left;
+    list-style: none;
+    margin-top:10px;
+    margin-left:0px;
+    z-index:1;
+    
+}
+
+img.Wall{
+    height:"50px";
+    width:"50px";
+    
+}
+
+.WaniGate{
+    margin-top:100px;
+    margin-left:100px;
+}
+
+.StButton{
+    font-size: 20px;
+    font-weight: bold;
+    padding:10px 30px;
+    color:#fff;
+    border-style: none;
+    background-color: #24d;
+}
+
+.borderline{
+    position: fixed;
+    top:650px;
+    left:10px;
+    border: medium solid #ff00ff;
+    width: 1000px;
+}
+
+.WaniWani1{
+    margin-top:10px;
+    margin-left:10px;
+    animation: anim 1s;
+    background-color:transparent;
+    border:transparent;
+    width:100px;
+    animation-iteration-count: infinite;
+}
+
+.WaniWani2{
+    margin-top:10px;
+    margin-left:130px;
+    animation: anim 1s;
+    background-color:transparent;
+    border:transparent;
+    width:100px;
+    animation-iteration-count: infinite;
+}
+
+.WaniWani3{
+    margin-top:10px;
+    margin-left:250px;
+    animation: anim 1s;
+    background-color:transparent;
+    border:transparent;
+    width:100px;
+    animation-iteration-count: infinite;
+}
+
+.WaniWani4{
+    margin-top:10px;
+    margin-left:380px;
+    animation: anim 1s;
+    background-color:transparent;
+    border:transparent;
+    width:100px;
+    animation-iteration-count: infinite;
+}
+
+.WaniWani5{
+    margin-top:10px;
+    margin-left:500px;
+    animation: anim 1s;
+    background-color:transparent;
+    border:transparent;
+    width:100px;
+    animation-iteration-count: infinite;
+}
+
+.Hit1{
+    margin-top:10px;
+    margin-left:60px;
+    width:100px;
+}
+
+.Hit2{
+    margin-top:10px;
+    margin-left:250px;
+    width:100px;
+}
+
+.Hit3{
+    margin-top:10px;
+    margin-left:425px;
+    width:100px;
+}
+
+.Hit4{
+    margin-top:10px;
+    margin-left:620px;
+    width:100px;
+}
+
+.Hit5{
+    margin-top:10px;
+    margin-left:800px;
+    width:100px;
+}
+
+@keyframes anim {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(200px);
+    }
+}
