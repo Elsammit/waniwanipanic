@@ -3,7 +3,8 @@ import "./waniwani.css";
 import iwakabe from './image/iwakabe.jpg';
 import wani from './image/makewani.png';
 import hit from './image/waniHit.png';
-
+import hitsound from './sound/boysound.mp3';
+import byte from './sound/byte.mp3';
 
 export default class Cooking extends Component  {
     constructor (props) {
@@ -11,7 +12,7 @@ export default class Cooking extends Component  {
         this.state = {
             location:0,
             hitflg:true,
-            hitpoint:100,
+            hitpoint:30,
             point:0
         };
     }
@@ -19,7 +20,7 @@ export default class Cooking extends Component  {
     MakeGate = () =>{
         return(
         <div className="Gate">
-        <table cellspacing="0" cellpadding="0">
+        <table cellSpacing="0" cellPadding="0">
             <tbody>
                 <tr>
                     <td><img src={iwakabe} height="30px" width="30px"/></td>
@@ -47,6 +48,9 @@ export default class Cooking extends Component  {
 
     HitWani = () =>{
         const {point} = this.state;
+        const audio = new Audio(hitsound);
+        audio.play();
+
         this.setState(()=>{
             return {hitflg:true};
         })
@@ -67,7 +71,7 @@ export default class Cooking extends Component  {
     finish_Game = () =>{
         return new Promise((resolve, reject) =>{
             this.setState(()=>{
-                return {hitpoint:100};
+                return {hitpoint:30};
             })
             this.setState(()=>{
                 return {hitflg:true};
@@ -83,16 +87,27 @@ export default class Cooking extends Component  {
             document.getElementById("StButton").removeAttribute("disabled");
             document.getElementById("StButton").style.backgroundColor = "#24d";
     
-            document.getElementById('hitpointbar').style.width = 100*3 + "px";
+            document.getElementById('hitpointbar').style.width = 30*3 + "px";
             resolve("a");
         })
 
     }
 
+    test = () =>{
+        return new Promise((resolve, reject) =>{
+            const {hitpoint} = this.state;
+            document.getElementById('hitpointbar').style.width = (hitpoint - 10)*3 + 10 + "px";
+            this.setState(()=>{
+                return {hitpoint:hitpoint - 10};
+            })
+            resolve("a");
+        })
+    }
+
+    
     DoCalcHitpoint = () =>{
         return new Promise((resolve, reject) =>{
             const {hitflg} = this.state;
-            const {hitpoint} = this.state;
     
             var a = Math.floor( Math.random() * 5)+1 ;
             this.setState(()=>{
@@ -100,27 +115,38 @@ export default class Cooking extends Component  {
             })
         
             if(hitflg === false){
-                document.getElementById('hitpointbar').style.width = (hitpoint - 10)*3 + 10 + "px";
-                this.setState(()=>{
-                    return {hitpoint:hitpoint - 10};
+                this.test().then( () =>{
+                    this.checkHitpoint().then(()=>{
+                        resolve("a");
+                    })
                 })
             }else{
                 this.setState(()=>{
                     return {hitflg:false};
                 })
+                resolve("a");
             }
-            resolve("a");
+        })
+    }
+
+    checkHitpoint = () =>{
+        return new Promise((resolve, reject) =>{
+            const {hitpoint} = this.state;
+            console.log("hitpoint:"+hitpoint);
+            if(hitpoint <0){
+                document.getElementById('hitpointbar').style.width = 0 + "px";
+                this.CheckResult();
+            }else{
+                const audio = new Audio(byte);
+                audio.play();
+            }
         })
     }
 
     rand_WaniUp = () =>{
         this.DoCalcHitpoint().then( () =>{
             const {hitpoint} = this.state;
-            
-            if(hitpoint <0){
-                document.getElementById('hitpointbar').style.width = 0 + "px";
-                this.CheckResult();
-            }
+            console.log("hitpoint:"+hitpoint);
         })
     }
 
