@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.52b88725.chunk.css",
+    "main.js": "/static/js/main.30d7cef2.chunk.js",
+    "main.js.map": "/static/js/main.30d7cef2.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.fd056108.js",
+    "runtime-main.js.map": "/static/js/runtime-main.fd056108.js.map",
+    "static/js/2.518cac1e.chunk.js": "/static/js/2.518cac1e.chunk.js",
+    "static/js/2.518cac1e.chunk.js.map": "/static/js/2.518cac1e.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.67e032577073493eafd5ccf56e196054.js": "/precache-manifest.67e032577073493eafd5ccf56e196054.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.52b88725.chunk.css.map": "/static/css/main.52b88725.chunk.css.map",
+    "static/js/2.518cac1e.chunk.js.LICENSE.txt": "/static/js/2.518cac1e.chunk.js.LICENSE.txt",
+    "static/media/iwakabe.jpg": "/static/media/iwakabe.c96c4fb4.jpg",
+    "static/media/makewani.png": "/static/media/makewani.d35dbc94.png",
+    "static/media/waniwani.css": "/static/media/sea2.5129ad7b.png",
+    "static/media/waniHit.png": "/static/media/waniHit.133a40ac.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fd056108.js",
+    "static/js/2.518cac1e.chunk.js",
+    "static/css/main.52b88725.chunk.css",
+    "static/js/main.30d7cef2.chunk.js"
+  ]
+}
