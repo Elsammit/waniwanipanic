@@ -6,7 +6,7 @@ import hit from './image/waniHit.png';
 import hitsound from './sound/boysound.mp3';
 import byte from './sound/byte.mp3';
 
-export default class Cooking extends Component  {
+export default class waniwani extends Component  {
     constructor (props) {
         super(props);
         this.state = {
@@ -88,7 +88,7 @@ export default class Cooking extends Component  {
             document.getElementById("StButton").style.backgroundColor = "#24d";
     
             document.getElementById('hitpointbar').style.width = 30*3 + "px";
-            resolve("a");
+            resolve();
         })
 
     }
@@ -100,13 +100,13 @@ export default class Cooking extends Component  {
             this.setState(()=>{
                 return {hitpoint:hitpoint - 10};
             })
-            resolve("a");
+            resolve();
         })
     }
 
     
     DoCalcHitpoint = () =>{
-        return new Promise((resolve, reject) =>{
+        return new Promise((resolve) =>{
             const {hitflg} = this.state;
     
             var a = Math.floor( Math.random() * 5)+1 ;
@@ -117,14 +117,14 @@ export default class Cooking extends Component  {
             if(hitflg === false){
                 this.test().then( () =>{
                     this.checkHitpoint().then(()=>{
-                        resolve("a");
+                        resolve();
                     })
                 })
             }else{
                 this.setState(()=>{
                     return {hitflg:false};
                 })
-                resolve("a");
+                resolve();
             }
         })
     }
@@ -161,7 +161,6 @@ export default class Cooking extends Component  {
 
     render() {
         const {location} = this.state;
-        const {hitpoint} = this.state;
         const {hitflg} = this.state;
         const {point} = this.state;
 
