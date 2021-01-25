@@ -6,6 +6,7 @@ import hit from './image/waniHit.png';
 import hitsound from './sound/boysound.mp3';
 import byte from './sound/byte.mp3';
 import face from './image/face.png'
+import losePose from './image/pose_lose_boy.png'
 
 export default class waniwani extends Component  {
     constructor (props) {
@@ -49,8 +50,8 @@ export default class waniwani extends Component  {
 
     HitWani = () =>{
         const {point} = this.state;
-        const audio = new Audio(hitsound);
-        audio.play();
+        //const audio = new Audio(hitsound);
+        //audio.play();
 
         this.setState(()=>{
             return {hitflg:true};
@@ -88,14 +89,11 @@ export default class waniwani extends Component  {
             clearInterval(this.intervalId);
             document.getElementById("StButton").removeAttribute("disabled");
             document.getElementById("StButton").style.backgroundColor = "#24d";
-    
-            //document.getElementById('hitpointbar').style.width = 30*3 + "px";
+
             for(var i=0;i<4;i++){
                 var hitpointId = "HitPointFace" + i; 
                 document.getElementById(hitpointId).style.visibility = "visible";
             }
-            //this.DoCalcHitpoint();
-            //document.getElementById('hitpointbar')
             resolve();
         })
 
@@ -104,7 +102,6 @@ export default class waniwani extends Component  {
     test = () =>{
         return new Promise((resolve, reject) =>{
             const {hitpoint} = this.state;
-            //document.getElementById('hitpointbar').style.width = (hitpoint - 10)*3 + 10 + "px";
             var hitpointId = "HitPointFace" + hitpoint; 
             document.getElementById(hitpointId).style.visibility = "hidden";
             this.setState(()=>{
@@ -143,10 +140,12 @@ export default class waniwani extends Component  {
         return new Promise((resolve, reject) =>{
             const {hitpoint} = this.state;
             if(hitpoint <0){
-                //this.CheckResult();
-                this.finish_Game().then( () =>{
-                    
-                    //alert("Game Finish!!");
+               clearInterval(this.intervalId);
+               this.setState(()=>{
+                    return {hitflg:true};
+                })
+                this.setState(()=>{
+                    return {location:0};
                 })
             }else{
                 //const audio = new Audio(byte);
@@ -158,7 +157,7 @@ export default class waniwani extends Component  {
     rand_WaniUp = () =>{
         this.DoCalcHitpoint().then( () =>{
             const {hitpoint} = this.state;
-            console.log("hitpoint:"+hitpoint);
+
         })
     }
 
@@ -171,14 +170,15 @@ export default class waniwani extends Component  {
         }
     }
 
+    atack = () =>{
+        alert("test");
+    }
+
     render() {
         const {location} = this.state;
         const {hitflg} = this.state;
         const {point} = this.state;
-
-        if(hitflg === true){
-            console.log("location:"+location);
-        }
+        const {hitpoint} = this.state;
 
         return (<div>
             <div className="Header">
@@ -237,6 +237,23 @@ export default class waniwani extends Component  {
                     }
                 })()
             }
+            </div>
+            <div>
+                {
+                    (() =>{
+                        if(hitpoint < 0){
+                            return(
+                                <div className="Finishbox">
+                                    Game Over !!<br/>
+                                    <img src={losePose} alt="losePose" className="LosePose">
+                                    </img>
+                                    <button className="continue" onClick={this.finish_Game}>
+                                            続ける
+                                    </button>
+                                </div>);
+                        }
+                    })()
+                }
             </div>
         </div>);
     }
