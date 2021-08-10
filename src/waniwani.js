@@ -22,21 +22,21 @@ export default class waniwani extends Component  {
     MakeGate = () =>{
         return(
         <div className="Gate">
-        <table cellSpacing="0" cellPadding="0">
+        <table >
             <tbody>
-                <tr>
-                    <td><img src={iwakabe} alt="kabe" height="30px" width="30px"/></td>
-                    <td><img src={iwakabe} alt="kabe" height="30px" width="30px"/></td>
-                    <td><img src={iwakabe} alt="kabe" height="30px" width="30px"/></td>
-                    <td><img src={iwakabe} alt="kabe" height="30px" width="30px"/></td>
+                <tr className="kabe">
+                    <td><img src={iwakabe} alt="kabe" /></td>
+                    <td><img src={iwakabe} alt="kabe" /></td>
+                    <td><img src={iwakabe} alt="kabe" /></td>
+                    <td><img src={iwakabe} alt="kabe" /></td>
                 </tr>
-                <tr>
+                <tr className="kabe">
                 <td><img src={iwakabe} alt="kabe" height="30px" width="30px"/></td>
                     <td></td>
                     <td></td>
                     <td><img src={iwakabe} alt="kabe" height="30px" width="30px"/></td>
                 </tr>
-                <tr>
+                <tr className="kabe">
                 <td><img src={iwakabe} alt="kabe" height="30px" width="30px"/></td>
                     <td></td>
                     <td></td>

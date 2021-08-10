@@ -100,7 +100,7 @@
 .SeaBack{
     background-image: url("./image/sea2.png");
     background-repeat: no-repeat;
-    width:620px;
+    width:800px;
     height:500px;
     margin-top:10px;
 }
@@ -229,4 +229,36 @@ img.Wall{
     100% {
         transform: translateY(200px);
     }
+}
+
+.Gate > table{
+    /*cellSpacing:0; 
+    cellPadding:0;*/
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin:0px;
+    padding:10px;
+    border: none;
+}
+
+.kabe{
+    height:30px;
+    margin:0px;
+    padding:0px;
+}
+
+.kabe > td{
+    /*border: 2px solid red;*/
+    height:10px;
+    width:30px;
+    margin:0px;
+    padding:0px;
+    font-size:0px;
+  }
+  
+.kabe > td > img {
+    height:30px;
+    width:30px;
+    margin:0px;
+    padding:0px;
 }
